@@ -8,13 +8,8 @@ from .GetDetails import getDetails
 def home(request):
 	print("Route Hit")
 	if request.is_ajax():
-		print("hello")
-		print("post data : ", request.POST)
-		# name = data["name"]
-		name = "name"
-
+		name = request.POST.dict()["name"]
 		detail = getDetails(name)
-
 		return HttpResponse(detail)
 	else:
 		print("main")
